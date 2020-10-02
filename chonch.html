@@ -1,0 +1,90 @@
+   
+<html>
+    <head> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script> 
+        <style> 
+            table { 
+                margin: 0 auto; 
+                font-size: large; 
+                border: 1px solid black; 
+            } 
+      
+            h1 { 
+                text-align: center; 
+                color: #006600; 
+                font-size: xx-large; 
+                font-family: 'Gill Sans',  
+                    'Gill Sans MT', ' Calibri',  
+                    'Trebuchet MS', 'sans-serif'; 
+            } 
+      
+            td { 
+                background-color: #E4F5D4; 
+                border: 1px solid black; 
+            } 
+      
+            th, 
+            td { 
+                font-weight: bold; 
+                border: 1px solid black; 
+                padding: 10px; 
+                text-align: center; 
+            } 
+      
+            td { 
+                font-weight: lighter; 
+            } 
+        </style> 
+
+    </head> 
+      
+<body> 
+    <section> 
+        <h1>NEWS 17BCE1297</h1> 
+  
+        <!-- TABLE CONSTRUCTION-->
+        <table id='table'> 
+            <!-- HEADING FORMATION -->
+            <tr> 
+                <th>Title</th> 
+                <th>Image</th> 
+                <th>Content</th> 
+            </tr> 
+
+    <script> 
+        $(document).ready(function () { 
+
+            // FETCHING DATA FROM JSON FILE 
+            $.getJSON("C:\Users\Akanksha\Desktop\articles.json",  
+                    function (data) { 
+                var article = ''; 
+
+                // ITERATING THROUGH OBJECTS 
+                $.each(data, function (key, value) { 
+                    // article+= value.source; 
+
+                    // article += value.author; 
+                    article += '<tr>'; 
+                            article += '<td>' +  
+                                 value.title +'</td>';
+
+                            article += '<td>' +  
+                                value.urlToImage +'</td>';
+
+                            article += '<td>' +  
+                                value.content +'</td>';
+
+                    // article += value.description ;
+                    
+                    // article += value.url;
+                    article += '</tr>'; 
+                }); 
+                  
+                // //INSERTING ROWS INTO TABLE  
+                $('#table').append(article); 
+            }); 
+        }); 
+    </script>
+    </section>
+    </body>
+</html>
